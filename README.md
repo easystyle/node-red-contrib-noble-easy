@@ -1,3 +1,7 @@
+## About This Fork
+
+これは @kmi/node-red-contrib-noble のフォークであり、依存ライブラリを @stoprocent/noble に差し替えたバージョンです。
+
 # BLE Node for NodeRed
 
 This is a node for [NodeRed](http://nodered.org) a tool for easily wiring together hardware devices, APIs and online services. This node provides a support for interacting with Bluetooth Low Energy (BLE) devices.

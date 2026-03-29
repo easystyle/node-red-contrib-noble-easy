@@ -23,7 +23,7 @@
 module.exports = function(RED) {
     "use strict";
 
-    var noble = require('noble');
+    var noble = require('@stoprocent/noble');
     var os = require('os');
     
     // The main node definition - most things happen in here

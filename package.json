@@ -1,13 +1,13 @@
 {
-  "name": "node-red-contrib-noble",
-  "version": "0.3.0",
-  "description": "A Node-RED node that uses Noble to interact with BLEs",
+  "name": "node-red-contrib-noble-easy",
+  "version": "0.3.1",
+  "description": "A Node-RED node that uses Noble to interact with BLEs. Forked for updating noble to @stoprocent/noble.",
   "dependencies": {
-    "noble": ">=0.2.7"
+    "@stoprocent/noble": ">=2.3.17"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kmi/node-red-contrib-noble"
+    "url": "https://github.com/easystyle/node-red-contrib-noble"
   },
   "license": "Apache",
   "keywords": [
