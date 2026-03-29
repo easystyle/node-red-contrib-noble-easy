@@ -51,37 +51,6 @@ module.exports = function(RED) {
             msg.advertisement = peripheral.advertisement;
             msg.rssi = peripheral.rssi;
 
-            // Check the BLE follows iBeacon spec
-            if (peripheral.manufacturerData) {
-                // http://www.theregister.co.uk/2013/11/29/feature_diy_apple_ibeacons/
-                if (peripheral.manufacturerData.length >= 25) {
-                    var proxUuid = peripheral.manufacturerData.slice(4, 20).toString('hex');
-                    var major = peripheral.manufacturerData.readUInt16BE(20);
-                    var minor = peripheral.manufacturerData.readUInt16BE(22);
-                    var measuredPower = peripheral.manufacturerData.readInt8(24);
-
-                    var accuracy = Math.pow(12.0, 1.5 * ((rssi / measuredPower) - 1));
-                    var proximity = null;
-
-                    if (accuracy < 0) {
-                        proximity = 'unknown';
-                    } else if (accuracy < 0.5) {
-                        proximity = 'immediate';
-                    } else if (accuracy < 4.0) {
-                        proximity = 'near';
-                    } else {
-                        proximity = 'far';
-                    }
-
-                    msg.manufacturerUuid = proxUuid;
-                    msg.major = major;
-                    msg.minor = minor;
-                    msg.measuredPower = measuredPower;
-                    msg.accuracy = accuracy;
-                    msg.proximity = proximity;
-                }
-            }
-
             // Generate output event
             node.send(msg);
         });
